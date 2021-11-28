@@ -27,5 +27,10 @@ DO
 	UPDATE manga
 	set sales=sales+10;
 
-
+delimiter $$
+CREATE PROCEDURE best(OUT s varchar(50))
+begin 
+    select manganame into s from manga where sales=(select max(sales) from manga);
+ end$$
+ delimiter ;
 
