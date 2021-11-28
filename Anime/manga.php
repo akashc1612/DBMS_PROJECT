@@ -8,7 +8,9 @@
 		$dor="";
 		$artist="";
 		$sales="";
+		$manga0="";
 		$query = "select * from manga";
+		$query0 = "select @p as s;";
 		?>
 <!DOCTYPE html>
 <html>
@@ -65,8 +67,13 @@
 			</table>
 		</form>
 	</div>
-	<div class="col-md-2"></div>
 </div><br><br>
+	<div ><center>The Best Manga of all time is: <?php $query_run1 = mysqli_query($connection,"call best(@p); "); $query_run0 = mysqli_query($connection,$query0);
+	while($row = mysqli_fetch_assoc($query_run0)){
+		$manga0= $row['s'];
+	} ?> <?php echo $manga0;?></center></div>
+	<br><br>
+
 <center><a href="addmanga.php"><button class="btn btn-primary">Convert Manga from Light Novel</button></a></center><br>
 	
 </body>
