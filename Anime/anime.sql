@@ -1,4 +1,3 @@
-
 create table light_novel(lnid int(11) primary key,lnname varchar(50),dor date not null,author varchar(20) not null, ratings int not null);
 create table manga(mangaid int(11) primary key,manganame varchar(50), sales int not null,writer varchar(20) not null,dor date,artist varchar(20) not null);
 create table adapts(lnid int(11) references light_novel(lnid),mangaid int(11) references manga(mangaid),astatus varchar(20) not null,primary key(lnid,mangaid));
